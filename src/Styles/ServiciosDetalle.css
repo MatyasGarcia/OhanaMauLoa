@@ -1,0 +1,39 @@
+.Detalle-conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+.Detalle-card {
+    background-color: transparent;
+    border: none;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+.Detalle-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+}
+.Detalle-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #333;
+}
+.Detalle-card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+}

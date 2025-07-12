@@ -1,0 +1,27 @@
+.HeaderContainer {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+.HeaderCard {
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    background-color: #fefefe;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+    font-size: 20px;
+    margin: 5px;
+}
+.HeaderImage {
+    height: auto;
+    object-fit: cover;
+    width: 300px;
+    max-width: 99%;
+}
+.HeaderText {
+    font-size: 1.5rem;
+    color: #333;
+    padding: 60px;
+}

@@ -1,0 +1,27 @@
+/*.MainContainer {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+.MainCard {
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    background-color: #fefefe;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+    font-size: 20px;
+    margin: 5px;
+}
+.MainImage {
+    height: auto;
+    object-fit: cover;
+    width: 300px;
+    max-width: 99%;
+}
+.MainText {
+    font-size: 1.5rem;
+    color: #333;
+    padding: 60px;
+}*/
