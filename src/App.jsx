@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import './App.css'
-import Home from './layouts/Home'
+import Home from './Layouts/Home'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Nav from './Components/Nav'
 import ServiciosDetalles from './Components/ServiciosDetalles'
