@@ -6,10 +6,7 @@ function Tarjeta({ producto }) {
 
     return (
         <div className="Detalle-card">
-            <img 
-                className="Detalle-image" 
-                src={imagen} 
-                alt={`Imagen de ${name}`} />
+            <img className="Detalle-image" src={imagen} alt={`Imagen de ${name}`}/>
             <h2 className="Detalle-nombre">{name}</h2>
             <p className="Detalle-precio">{price} $</p>
             <Link to={`/productos/${id}`}>

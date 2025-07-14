@@ -3,6 +3,7 @@ import { dispararSweetBasico } from '../assets/SweetAlert';
 import "../Styles/Nav.css";
 import { useProductosContext } from '../context/ProductosContext';
 import { useAuthContext } from '../context/AuthContext';
+import { Row, Col } from 'react-bootstrap';
 
 function AgregarProducto({}) {
     const {user, rol} = useAuthContext();
@@ -56,31 +57,37 @@ const validarFormulario = () => {
     }
 
     return (
-        <div className="d-flex flex-column  justify-content-center  align-items-center">
-            <form onSubmit={handleSubmit} className="p-4 border rounded shadow w-50">
-                <h2>Agregar Producto</h2>
-                    <div className="mb-3">
-                        <label className="form-label">Nombre:</label>
-                        <input type="text" name="name" value={producto.name} onChange={handleChange} className="form-control"/>
-                        {errores.name && <p style={{ color: 'red' }}>{errores.name}</p>}
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Precio:</label>
-                        <input type="number" name="price" value={producto.price} onChange={handleChange} min="0" className="form-control"/>
-                        {errores.price && <p style={{ color: 'red' }}>{errores.price}</p>}
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Descripción:</label>
-                        <textarea name="description" value={producto.description} onChange={handleChange} className="form-control"/>
-                        {errores.description && <p style={{ color: 'red' }}>{errores.description}</p>}
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">URL de la Imagen:</label>
-                        <input type="text" name="img" value={producto.img} onChange={handleChange} className="form-control"/>
-                        {errores.img && <p style={{ color: 'red' }}>{errores.img}</p>}
-                    </div>
-                <button type="submit" className="btn btn-primary w-50">Agregar Producto</button>
-            </form>
+        <div className="container py-4">
+            <Row className="justify-content-center">
+                <Col xs={12} md={8} lg={6}>
+                    <form onSubmit={handleSubmit} className="p-4 border rounded shadow bg-white">
+                        <h2 className="mb-4 text-center">Agregar Producto</h2>
+                            <div className="mb-3">
+                                <label className="form-label">Nombre:</label>
+                                <input type="text" name="name" value={producto.name} onChange={handleChange} className="form-control"/>
+                                {errores.name && <p className="text-danger">{errores.name}</p>}
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Precio:</label>
+                                <input type="number" name="price" value={producto.price} onChange={handleChange} min="0" className="form-control"/>
+                                {errores.price && <p className="text-danger">{errores.price}</p>}
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Descripción:</label>
+                                <textarea name="description" value={producto.description} onChange={handleChange} className="form-control"/>
+                                {errores.description && <p className="text-danger">{errores.description}</p>}
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">URL de la Imagen:</label>
+                                <input type="text" name="img" value={producto.img} onChange={handleChange} className="form-control"/>
+                                {errores.img && <p className="text-danger">{errores.img}</p>}
+                            </div>
+                            <div className="d-flex justify-content-center">
+                                <button type="submit" className="btn btn-primary w-100 w-md-50">Agregar Producto</button>
+                            </div>
+                    </form>
+                </Col>
+            </Row>
         </div>
     );
 }

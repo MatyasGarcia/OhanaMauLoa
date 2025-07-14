@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import { dispararSweetBasico } from '../assets/SweetAlert';
+import { Row, Col } from 'react-bootstrap';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -44,31 +45,29 @@ const handleSubmit = async (e) => {
     }
 
     return (
-        <div className="d-flex flex-column  justify-content-center  align-items-center">
-            <form onSubmit={handleSubmit} className="p-4 border rounded shadow w-50">
-                <h2>Iniciar sesión</h2>
-                <div className="mb-3">
-                    <label className="form-label">Email:</label>
-                    <input className="form-control"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Contraseña:</label>
-                    <input className="form-control"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button className="btn btn-primary w-50" type="submit">Iniciar sesión</button>
-                <p>¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link></p>
-            </form>
-        </div>
+    <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <Row className="w-100 justify-content-center">
+            <Col xs={12} sm={10} md={8} lg={6} xl={4}>
+                <form onSubmit={handleSubmit} className="p-4 border rounded shadow bg-white">
+                    <h2 className="mb-4 text-center">Iniciar sesión</h2>
+                    <div className="mb-3">
+                        <label className="form-label">Email:</label>
+                        <input
+                        className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Contraseña:</label>
+                        <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    </div>
+                    <div className="d-grid mb-3">
+                        <button className="btn btn-primary" type="submit">Iniciar sesión</button>
+                    </div>
+                    <p className="text-center">¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
+                    </p>
+                </form>
+            </Col>
+        </Row>
+    </div>
     );
 }
 

@@ -3,6 +3,7 @@ import CarritoTarjeta from "./CarritoTarjeta"
 import { useContext, useState } from "react";
 import { CarritoContext } from "../context/CarritoContext";
 import { useAuthContext } from '../context/AuthContext';
+import { Row, Col } from 'react-bootstrap';
 
 export default function Carrito({ adminLogeado }) {
         const {user} = useAuthContext();
@@ -24,26 +25,33 @@ export default function Carrito({ adminLogeado }) {
         </div>
     );
     }
+
     return (
-    <div className="carrito-container">
-        <div className="carrito-grid encabezado">
-            <h2>Producto</h2>
-            <h2>Descripción</h2>
-            <h2>Imagen</h2>
-            <h2>Cantidad</h2>
-            <h2>Precio unitario</h2>
-            <h2>Sub total</h2>
-            <h2>Acción</h2>
+        <div className="container carrito-container py-4">
+            <Row>
+                <Col>
+                    <div className="d-none d-md-grid carrito-grid encabezado text-center fw-bold mb-3">
+                        <div>Producto</div>
+                        <div>Descripción</div>
+                        <div>Imagen</div>
+                        <div>Cantidad</div>
+                        <div>Precio unitario</div>
+                        <div>Sub total</div>
+                        <div>Acción</div>
+                    </div>
+                    {productosCarrito.length > 0 ? (
+                    productosCarrito.map((producto) => (
+                        <CarritoTarjeta key={producto.id} producto={producto} funcionDisparadora={funcionDisparadora}/>
+                    ))
+                    ) : (<p className="text-center">Carrito vacío</p>)}
+                    {total > 0 && (
+                    <div className="mt-4 text-center">
+                        <h5>Total a pagar: <strong>{total} $</strong></h5>
+                        <button onClick={funcionVaciarCarrito} className="btn btn-danger mt-2">Vaciar carrito</button>
+                    </div>
+                    )}
+                </Col>
+            </Row>
         </div>
-        {productosCarrito.length > 0 ? (
-        productosCarrito.map((producto) => (
-            <CarritoTarjeta key={producto.id} producto={producto} funcionDisparadora={funcionDisparadora} />
-        ))
-        ) : (
-        <p>Carrito vacío</p>
-        )}
-        {total > 0 && <span>Total a pagar: {total} $</span>}
-        <button onClick={funcionVaciarCarrito} className="btn btn-primary">Vaciar carrito</button>
-    </div>
     );
 }

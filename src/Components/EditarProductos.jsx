@@ -3,6 +3,7 @@ import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { useProductosContext } from '../context/ProductosContext';
 import { dispararSweetBasico } from '../assets/SweetAlert';
 import { useAuthContext } from '../context/AuthContext';
+import { Row, Col } from 'react-bootstrap';
 
 function EditarProducto() {
     const {user, rol} = useAuthContext();
@@ -64,27 +65,33 @@ const handleSubmit = async (e) => {
     if (!producto) return <p>Cargando producto...</p>;
 
     return (
-        <div className="d-flex flex-column  justify-content-center  align-items-center">
-            <form onSubmit={handleSubmit} className="p-4 border rounded shadow w-50">
-                <h2>Editar Producto</h2>
-                <div className="mb-3">
-                    <label className="form-label">Nombre:</label>
-                    <input name="name" value={producto.name || ''} onChange={handleChange} className="form-control"/>
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Precio:</label>
-                    <input name="price" type="number" value={producto.price || ''} onChange={handleChange} className="form-control"/>
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Descripción:</label>
-                    <textarea name="description" value={producto.description || ''} onChange={handleChange} className="form-control"/>
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Imagen:</label>
-                    <input name="imagen" value={producto.imagen || ''} onChange={handleChange} className="form-control"/>
-                </div>
-                <button type="submit" className="btn btn-primary w-50">Guardar cambios</button>
-            </form>
+        <div className="d-flex flex-column justify-content-center align-items-center px-3">
+            <Row className="w-100 justify-content-center">
+                <Col xs={12} md={8} lg={6}>
+                    <form onSubmit={handleSubmit} className="p-4 border rounded shadow">
+                        <h2 className="text-center mb-4">Editar Producto</h2>
+                        <div className="mb-3">
+                            <label className="form-label">Nombre:</label>
+                            <input name="name" value={producto.name || ''} onChange={handleChange} className="form-control" required/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Precio:</label>
+                            <input name="price" type="number" value={producto.price || ''} onChange={handleChange} className="form-control" min="0" required/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Descripción:</label>
+                            <textarea name="description" value={producto.description || ''} onChange={handleChange} className="form-control" required/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Imagen:</label>
+                            <input name="imagen" value={producto.imagen || ''} onChange={handleChange} className="form-control" required/>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <button type="submit" className="btn btn-primary w-100 w-md-50">Guardar cambios</button>
+                        </div>
+                    </form>
+                </Col>
+            </Row>
         </div>
     );
 }

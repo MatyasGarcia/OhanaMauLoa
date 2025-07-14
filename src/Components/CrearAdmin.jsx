@@ -5,6 +5,7 @@ import { auth, db } from '../assets/Auth/Firebase';
 import "../Styles/Nav.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Row, Col } from 'react-bootstrap';
 
 function CrearAdmin() {
     const [email, setEmail] = useState('');
@@ -32,25 +33,17 @@ function CrearAdmin() {
 
     return (
         <div>
-        <h3>Crear nuevo administrador</h3>
-        <form onSubmit={handleCrearAdmin}>
-            <input
-            type="email"
-            placeholder="Correo"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            />
-            <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            />
-            <button type="submit">Crear Admin</button>
-        </form>
-        <ToastContainer position="top-center" autoClose={3000} />
+            <Row>
+                <Col>
+                    <h3>Crear nuevo administrador</h3>
+                    <form onSubmit={handleCrearAdmin}>
+                        <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                        <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        <button type="submit">Crear Admin</button>
+                    </form>
+                    <ToastContainer position="top-center" autoClose={3000}/>
+                </Col>
+            </Row>
         </div>
     );
 }

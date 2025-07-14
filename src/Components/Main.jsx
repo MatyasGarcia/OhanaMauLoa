@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Tarjeta from "./Tarjeta";
+import { Row, Col } from 'react-bootstrap';
 
 function Main() {
     const promocionesFalsas = [
@@ -21,14 +22,18 @@ function Main() {
 
     return (
         <main>
-            <div>
-                <h2>Promociones</h2>
-                <div className="Detalle-conteiner">
-                    {promocionesFalsas.map((promo) => (
-                        <Tarjeta key={promo.id} producto={promo} />
-                    ))}
-                </div>
-            </div>
+            <Row>
+                <Col>
+                    <div>
+                        <h2>Promociones</h2>
+                        <div className="Detalle-conteiner">
+                            {promocionesFalsas.map((promo) => (
+                                <Tarjeta key={promo.id} producto={promo}/>
+                            ))}
+                        </div>
+                    </div>
+                </Col>
+            </Row>
         </main>
     );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import { dispararSweetBasico } from '../assets/SweetAlert';
+import { Row, Col } from 'react-bootstrap';
 
 function Register() {
     const [email, setEmail] = useState('');
@@ -28,18 +29,22 @@ const registrarUsuario = async (e) => {
 
     return (
         <div className="d-flex flex-column  justify-content-center  align-items-center">
-            <form onSubmit={registrarUsuario} className="p-4 border rounded shadow w-50">
-                <h2>Registrarse</h2>
-                <div className="mb-3">
-                    <label className="form-label">Email:</label>
-                    <input className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Contraseña:</label>
-                    <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-                </div>
-                <button type="submit" className="btn btn-primary w-50">Registrarse</button>
-            </form>
+            <Row>
+                <Col>
+                    <form onSubmit={registrarUsuario} className="p-4 border rounded shadow w-50">
+                        <h2>Registrarse</h2>
+                        <div className="mb-3">
+                            <label className="form-label">Email:</label>
+                            <input className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Contraseña:</label>
+                            <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        </div>
+                        <button type="submit" className="btn btn-primary w-50">Registrarse</button>
+                    </form>
+                </Col>
+            </Row>
         </div>
     );
 }
