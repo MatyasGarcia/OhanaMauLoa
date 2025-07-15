@@ -1,4 +1,3 @@
-import "../Styles/Carrito.css"
 import { Row, Col } from 'react-bootstrap';
 
 function CarritoTarjeta({producto, funcionDisparadora}){
