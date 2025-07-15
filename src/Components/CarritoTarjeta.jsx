@@ -10,26 +10,32 @@ function CarritoTarjeta({producto, funcionDisparadora}){
 
     return (
         <div className="border p-3 rounded mb-3 shadow-sm">
-            <Row className="align-items-center text-center text-md-start g-3">
+            <Row className="align-items-center text-center text-md-start">
                 <Col xs={12} md={2}>
-                    <div>{producto.name}</div>
+                    <h5 className="fw-bold d-md-none">Producto:</h5>
+                    <p>{producto.name}</p>
                 </Col>
                 <Col xs={12} md={2}>
-                    <div>{producto.description}</div>
+                    <h5 className="fw-bold d-md-none">Descripción:</h5>
+                    <p>{producto.description}</p>
                 </Col>
                 <Col xs={12} md={2}>
-                    <img className="img-fluid rounded mt-2" src={producto.imagen} alt={producto.name} style={{ maxHeight: "80px", maxWidth: "100%" }}/>
+                    <h5 className="fw-bold d-md-none">Imagen:</h5>
+                    <img src={producto.imagen} alt={producto.name} className="img-fluid rounded mx-auto d-block" style={{ maxHeight: "80px" }}/>
                 </Col>
                 <Col xs={6} md={1}>
-                    <div>{producto.cantidad}</div>
+                    <h5 className="fw-bold d-md-none">Cantidad:</h5>
+                    <p>{producto.cantidad}</p>
                 </Col>
                 <Col xs={6} md={2}>
-                    <div>{producto.price} $</div>
+                    <h5 className="fw-bold d-md-none">Precio unitario:</h5>
+                    <p>{producto.price} $</p>
                 </Col>
                 <Col xs={12} md={2}>
-                    <div>{producto.cantidad * producto.price} $</div>
+                    <h5 className="fw-bold d-md-none">Subtotal:</h5>
+                    <p>{producto.cantidad * producto.price} $</p>
                 </Col>
-                <Col xs={12} md={1} className="d-flex justify-content-center mt-2 mt-md-0">
+                <Col xs={12} md={1} className="text-center text-md-start">
                     <button className="btn btn-sm btn-danger" onClick={borrarDelCarrito}>X</button>
                 </Col>
             </Row>

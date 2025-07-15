@@ -28,10 +28,10 @@ const registrarUsuario = async (e) => {
 }
 
     return (
-        <div className="d-flex flex-column  justify-content-center  align-items-center">
-            <Row>
-                <Col>
-                    <form onSubmit={registrarUsuario} className="p-4 border rounded shadow w-50">
+        <div className="container py-4">
+            <Row className="w-100 justify-content-center">
+                <Col xs={12} md={8} lg={6}>
+                    <form onSubmit={registrarUsuario} className="p-4 border rounded shadow">
                         <h2>Registrarse</h2>
                         <div className="mb-3">
                             <label className="form-label">Email:</label>
@@ -41,7 +41,7 @@ const registrarUsuario = async (e) => {
                             <label className="form-label">Contraseña:</label>
                             <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                         </div>
-                        <button type="submit" className="btn btn-primary w-50">Registrarse</button>
+                        <button type="submit" className="btn btn-primary w-100 w-md-50">Registrarse</button>
                     </form>
                 </Col>
             </Row>

@@ -30,25 +30,33 @@ export default function Carrito({ adminLogeado }) {
         <div className="container carrito-container py-4">
             <Row>
                 <Col>
-                    <div className="d-none d-md-grid carrito-grid encabezado text-center fw-bold mb-3">
-                        <div>Producto</div>
-                        <div>Descripción</div>
-                        <div>Imagen</div>
-                        <div>Cantidad</div>
-                        <div>Precio unitario</div>
-                        <div>Sub total</div>
-                        <div>Acción</div>
+                    <div className="d-none d-md-flex justify-content-between text-center fw-bold mb-3 border-bottom pb-2">
+                        <div className="col-md-2">Producto</div>
+                        <div className="col-md-2">Descripción</div>
+                        <div className="col-md-2">Imagen</div>
+                        <div className="col-md-1">Cantidad</div>
+                        <div className="col-md-2">Precio unitario</div>
+                        <div className="col-md-2">Sub total</div>
+                        <div className="col-md-1"></div>
                     </div>
                     {productosCarrito.length > 0 ? (
-                    productosCarrito.map((producto) => (
-                        <CarritoTarjeta key={producto.id} producto={producto} funcionDisparadora={funcionDisparadora}/>
-                    ))
-                    ) : (<p className="text-center">Carrito vacío</p>)}
+                        productosCarrito.map((producto) => (
+                            <CarritoTarjeta
+                                key={producto.id}
+                                producto={producto}
+                                funcionDisparadora={funcionDisparadora}
+                            />
+                        ))
+                    ) : (
+                        <p className="text-center">Carrito vacío</p>
+                    )}
                     {total > 0 && (
-                    <div className="mt-4 text-center">
-                        <h5>Total a pagar: <strong>{total} $</strong></h5>
-                        <button onClick={funcionVaciarCarrito} className="btn btn-danger mt-2">Vaciar carrito</button>
-                    </div>
+                        <div className="mt-4 text-center">
+                            <h5>Total a pagar: <strong>{total} $</strong></h5>
+                            <button onClick={funcionVaciarCarrito} className="btn btn-danger mt-2">
+                                Vaciar carrito
+                            </button>
+                        </div>
                     )}
                 </Col>
             </Row>

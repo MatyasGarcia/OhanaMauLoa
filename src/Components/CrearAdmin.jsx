@@ -32,14 +32,14 @@ function CrearAdmin() {
     };
 
     return (
-        <div>
-            <Row>
-                <Col>
-                    <h3>Crear nuevo administrador</h3>
+        <div className="container py-4">
+            <Row className="w-100 justify-content-center">
+                <Col xs={12} md={8} lg={6}>
+                    <h3 className="mb-3">Crear nuevo administrador</h3>
                     <form onSubmit={handleCrearAdmin}>
-                        <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                        <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-                        <button type="submit">Crear Admin</button>
+                        <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required className="form-control mb-3"/>
+                        <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required className="form-control mb-3"/>
+                        <button type="submit" className="btn btn-primary btn-lg">Crear Admin</button>
                     </form>
                     <ToastContainer position="top-center" autoClose={3000}/>
                 </Col>

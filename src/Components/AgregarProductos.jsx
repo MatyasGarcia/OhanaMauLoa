@@ -62,29 +62,29 @@ const validarFormulario = () => {
                 <Col xs={12} md={8} lg={6}>
                     <form onSubmit={handleSubmit} className="p-4 border rounded shadow bg-white">
                         <h2 className="mb-4 text-center">Agregar Producto</h2>
-                            <div className="mb-3">
-                                <label className="form-label">Nombre:</label>
-                                <input type="text" name="name" value={producto.name} onChange={handleChange} className="form-control"/>
-                                {errores.name && <p className="text-danger">{errores.name}</p>}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Precio:</label>
-                                <input type="number" name="price" value={producto.price} onChange={handleChange} min="0" className="form-control"/>
-                                {errores.price && <p className="text-danger">{errores.price}</p>}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Descripción:</label>
-                                <textarea name="description" value={producto.description} onChange={handleChange} className="form-control"/>
-                                {errores.description && <p className="text-danger">{errores.description}</p>}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">URL de la Imagen:</label>
-                                <input type="text" name="img" value={producto.img} onChange={handleChange} className="form-control"/>
-                                {errores.img && <p className="text-danger">{errores.img}</p>}
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <button type="submit" className="btn btn-primary w-100 w-md-50">Agregar Producto</button>
-                            </div>
+                        <div className="mb-3">
+                            <label className="form-label">Nombre:</label>
+                            <input type="text" name="name" value={producto.name} onChange={handleChange} className="form-control"/>
+                            {errores.name && <p className="text-danger">{errores.name}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Precio:</label>
+                            <input type="number" name="price" value={producto.price} onChange={handleChange} min="0" className="form-control"/>
+                            {errores.price && <p className="text-danger">{errores.price}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Descripción:</label>
+                            <textarea name="description" value={producto.description} onChange={handleChange} className="form-control"/>
+                            {errores.description && <p className="text-danger">{errores.description}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">URL de la Imagen:</label>
+                            <input type="text" name="img" value={producto.img} onChange={handleChange} className="form-control"/>
+                            {errores.img && <p className="text-danger">{errores.img}</p>}
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <button type="submit" className="btn btn-primary w-100 w-md-50">Agregar Producto</button>
+                        </div>
                     </form>
                 </Col>
             </Row>

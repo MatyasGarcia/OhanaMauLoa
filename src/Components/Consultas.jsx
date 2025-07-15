@@ -3,9 +3,9 @@ import { Row, Col } from 'react-bootstrap';
 export default function Cosultas(){
 
 return(
-    <div className="p-4 my-3 border rounded shadow">
-        <Row>
-            <Col>
+    <div className="container py-4">
+        <Row className="w-100 justify-content-center">
+            <Col xs={12} md={8} lg={6}>
                 <h3 className="mb-3">Dejanos tu Consulta</h3>
                 <form action="https://formspree.io/f/xnnqazkb" method="post">
                     <div>

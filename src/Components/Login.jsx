@@ -45,9 +45,9 @@ const handleSubmit = async (e) => {
     }
 
     return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100">
+    <div className="container py-4">
         <Row className="w-100 justify-content-center">
-            <Col xs={12} sm={10} md={8} lg={6} xl={4}>
+            <Col xs={12} md={8} lg={6}>
                 <form onSubmit={handleSubmit} className="p-4 border rounded shadow bg-white">
                     <h2 className="mb-4 text-center">Iniciar sesión</h2>
                     <div className="mb-3">
