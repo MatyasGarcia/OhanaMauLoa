@@ -38,24 +38,25 @@ const handleSubmit = async (e) => {
 
     if (user) {
         return (
-            <form onSubmit={handleLogout}>
-                <button type="submit" className="btn btn-primary w-50">Cerrar sesión</button>
-            </form>
+            <div className="container-fluid d-flex justify-content-center py-4">
+                <form onSubmit={handleLogout} className="w-100 d-flex justify-content-center">
+                    <button type="submit" className="btn btn-primary w-50">Cerrar sesión</button>
+                </form>
+            </div>
         );
     }
 
     return (
-    <div className="container py-4">
-        <Row className="w-100 justify-content-center">
-            <Col xs={12} md={8} lg={6}>
-                <form onSubmit={handleSubmit} className="p-4 border rounded shadow bg-white">
-                    <h2 className="mb-4 text-center">Iniciar sesión</h2>
-                    <div className="mb-3">
+    <div className="container-fluid py-4 px-3">
+        <Row className="justify-content-center">
+            <Col xs={12} sm={10} md={8} lg={6}>
+                <form onSubmit={handleSubmit} className="p-4 px-3 border rounded shadow bg-white text-center">
+                    <h2 className="mb-4">Iniciar sesión</h2>
+                    <div className="mb-3 text-start">
                         <label className="form-label">Email:</label>
-                        <input
-                        className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                        <input className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                     </div>
-                    <div className="mb-3">
+                    <div className="mb-3 mb-3 text-start">
                         <label className="form-label">Contraseña:</label>
                         <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </div>

@@ -19,9 +19,9 @@ export default function Carrito({ adminLogeado }) {
     }
     if (!user && !adminLogeado) {
     return (
-        <div className="carrito-container">
-            <p>Debes iniciar sesión para ver el carrito.</p>
-            <li><Link to="/login">Iniciar Sesión</Link></li>
+        <div className="d-flex justify-content-center align-items-center text-center flex-column" style={{ minHeight: '50vh' }}>
+            <p className="mb-3">Debes iniciar sesión para ver el carrito.</p>
+            <li><Link to="/login" className="btn btn-primary">Iniciar Sesión</Link></li>
         </div>
     );
     }

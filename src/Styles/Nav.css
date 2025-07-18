@@ -1,43 +1,13 @@
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    padding: 10px 40px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.navbar-brand img {
+    object-fit: cover;
 }
 
-.logo {
-    width: 60px;
-    height: auto;
-}
-
-.navbar-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 60px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: hotpink;
+.nav-link {
     font-weight: bold;
-    font-size: 15px;
-    transition: transform 0.3s ease, font-size 0.3s ease;
+    color: hotpink !important;
 }
 
-.nav-links li a:hover {
-    transform: scale(1.2);
-    font-size: 18px;
+.nav-link:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
 }
