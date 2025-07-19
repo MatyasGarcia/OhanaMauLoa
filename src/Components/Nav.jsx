@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Badge, Image } from "react-bootstrap";
 import { CarritoContext } from "../context/CarritoContext";
 import { useAuthContext } from "../context/AuthContext";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaUser  } from "react-icons/fa";
 import LogoOhana from "../assets/IMG/Logo-Ohana.jpg";
 import "../Styles/Nav.css";
 
@@ -33,7 +33,9 @@ function NavBarOhana() {
                                 <Badge bg="danger" pill>{productosCarrito.length}</Badge>
                             )}
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/login">Iniciar Sesión</Nav.Link>
+                        <Nav.Link as={Link} to="/login">
+                            <FaUser/>
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
