@@ -34,7 +34,7 @@ function NavBarOhana() {
                             )}
                         </Nav.Link>
                         <Nav.Link as={Link} to="/login">
-                            <FaUser/>
+                            <FaUser style={{ marginRight: "5px" }}/>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
