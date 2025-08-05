@@ -8,7 +8,6 @@ import { useProductosContext } from "../context/ProductosContext";
 import { Row, Col } from 'react-bootstrap';
 
 function ServiciosDetalles ({}) {
-    
     const navegar = useNavigate();
 
     const {agregarAlCarrito} = useContext (CarritoContext)
@@ -35,11 +34,20 @@ function ServiciosDetalles ({}) {
             })
         }, [id]);
 
-    function funcionCarrito() {
-        if (cantidad < 1) return;
-        dispararSweetBasico("Producto Agregado", "El producto fue agregado con éxito", "success", "Cerrar");
-        agregarAlCarrito({ ...productoEncontrado, cantidad });
-    }
+function funcionSolicitarTurno() {
+    if (cantidad < 1) return;
+    navegar(`/turnos/${id}`, {
+        state: {
+            producto: {
+                id: productoEncontrado.id,
+                name: productoEncontrado.name,
+                price: productoEncontrado.price,
+                imagen: productoEncontrado.imagen,
+                cantidad: cantidad
+            }
+        }
+    });
+}
 
     function dispararEliminar(){
         eliminarProducto(id).then(() => {
@@ -86,7 +94,7 @@ function ServiciosDetalles ({}) {
                             </Link>
                         </div>
                 ) : (
-                    <button onClick={funcionCarrito} className="btn btn-primary w-50">Solicitar Turno</button>
+                    <button onClick={funcionSolicitarTurno} className="btn btn-primary w-50">Solicitar Turno</button>
                 )}
                 </div>
             </Col>

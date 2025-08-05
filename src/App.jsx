@@ -16,6 +16,8 @@ import { useAuthContext } from './context/AuthContext'
 import CrearAdmin from './Components/CrearAdmin'
 import EditarProducto from './Components/EditarProductos'
 import Consultas from './Components/Consultas'
+import 'react-datepicker/dist/react-datepicker.css';
+import CalendarioTurnos from './Components/CalendarioTurnos'
 
 function App() {
   const { rol, user } = useAuthContext();
@@ -30,6 +32,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/consultas" element={<Consultas/>}/>
               <Route path="/servicios" element={<ServiciosConteiner />} />
+              <Route path="/turnos/:id" element={<CalendarioTurnos/>} />
               <Route path="/productos" element={<ProductosConteiner />} />
               <Route path="/carrito" element={<Carrito usuarioLogeado={!!user} />} />
               <Route path="/productos/:id" element={<ServiciosDetalles />} />

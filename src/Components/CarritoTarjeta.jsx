@@ -15,8 +15,12 @@ function CarritoTarjeta({producto, funcionDisparadora}){
                     <p>{producto.name}</p>
                 </Col>
                 <Col xs={12} md={2}>
-                    <h5 className="fw-bold d-md-none">Descripción:</h5>
-                    <p>{producto.description}</p>
+                    <h5 className="fw-bold d-md-none">Turno:</h5>
+                    {producto.fecha && producto.horario ? (
+                        <p>{producto.fecha} a las {producto.horario} hs</p>
+                    ) : (
+                        <p>Sin turno asignado</p>
+                    )}
                 </Col>
                 <Col xs={12} md={2}>
                     <h5 className="fw-bold d-md-none">Imagen:</h5>
