@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CarritoContext } from '../context/CarritoContext';
 import { dispararSweetBasico } from '../assets/SweetAlert';
+import { Row, Col } from 'react-bootstrap';
 
 const horariosDisponibles = [
     '09:00', '10:00', '11:00', '12:00',
@@ -19,8 +20,8 @@ const CalendarioTurnos = () => {
 
     const { producto } = location.state || {};
 
-    const handleConfirmar = () => {
-        if (fecha && horario) {
+const handleConfirmar = () => {
+    if (fecha && horario) {
         const turnoCompleto = {
             ...producto,
             fecha: fecha.toLocaleDateString(),
@@ -29,65 +30,70 @@ const CalendarioTurnos = () => {
 
         agregarAlCarrito(turnoCompleto);
 
-        dispararSweetBasico("Turno reservado", `Turno confirmado para el ${turnoCompleto.fecha} a las ${turnoCompleto.horario} hs.`, "success", "Ir al carrito")
-            .then(() => {
-            navegar("/carrito");
-            });
+        dispararSweetBasico(
+            "Turno reservado",
+            `Turno confirmado para el ${turnoCompleto.fecha} a las ${turnoCompleto.horario} hs.`,
+            "success",
+            "Seguir Comprando"
+        );
 
-        } else {
+    } else {
         alert('Por favor, seleccioná una fecha y un horario.');
-        }
-    };
+    }
+};
 
     if (!producto) return <p>Error: No se recibió la información del servicio.</p>;
 
-    return (
-        <div style={{ padding: '20px' }}>
-            <h2>Reservar turno</h2>
-            <p>Servicio: <strong>{producto.name}</strong></p>
-            <p>Precio: ${producto.price}</p>
-            <p>Cantidad: {producto.cantidad}</p>
-            <div>
-                <label>Seleccioná una fecha:</label>
-                <DatePicker
-                selected={fecha}
-                onChange={(date) => {
-                    setFecha(date);
-                    setHorario('');
-                }}
-                dateFormat="dd/MM/yyyy"
-                minDate={new Date()}
-                placeholderText="Elegí una fecha"/>
-            </div>
-        {fecha && (
-            <div style={{ marginTop: '15px' }}>
-            <label>Seleccioná un horario:</label>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
-                    {horariosDisponibles.map((hora) => (
-                    <button
-                        key={hora}
-                        onClick={() => setHorario(hora)}
-                        style={{
-                        padding: '10px',
-                        backgroundColor: horario === hora ? '#4caf50' : '#e0e0e0',
-                        border: 'none',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                        }}>
-                        {hora}
-                    </button>
-                    ))}
+return (
+    <div className="container py-4">
+        <Row className="justify-content-center">
+            <Col xs={12} md={8} lg={6}>
+                <h2 className="text-center mb-4">Reservar turno</h2>
+                <div className="mb-3">
+                    <p><strong>Servicio:</strong> {producto.name}</p>
+                    <p><strong>Precio:</strong> ${producto.price}</p>
+                    <p><strong>Cantidad:</strong> {producto.cantidad}</p>
                 </div>
-            </div>
-        )}
-        {horario && (
-            <div style={{ marginTop: '20px' }}>
-                <button onClick={handleConfirmar} className="btn btn-success">Confirmar turno</button>
-            </div>
-        )}
-        </div>
-    );
-};
+                <div className="mb-4">
+                    <label className="form-label"><strong>Seleccioná una fecha:</strong></label>
+                    <div className="d-flex justify-content-center">
+                        <DatePicker
+                            selected={fecha}
+                            onChange={(date) => {
+                                setFecha(date);
+                                setHorario('');
+                            }}
+                            dateFormat="dd/MM/yyyy"
+                            minDate={new Date()}
+                            placeholderText="Elegí una fecha"
+                            inline/>
+                    </div>
+                </div>
+                {fecha && (
+                    <div className="mb-4">
+                        <label className="form-label"><strong>Seleccioná un horario:</strong></label>
+                        <div className="d-flex flex-wrap gap-2 justify-content-center">
+                            {horariosDisponibles.map((hora) => (
+                                <button
+                                    key={hora}
+                                    onClick={() => setHorario(hora)}
+                                    className={`btn ${horario === hora ? 'btn-success' : 'btn-outline-secondary'}`}>
+                                    {hora}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                {horario && (
+                    <div className="text-center mt-3">
+                        <button onClick={handleConfirmar} className="btn btn-success">Confirmar turno</button>
+                    </div>
+                )}
+            </Col>
+        </Row>
+    </div>
+);
+}
 
 export default CalendarioTurnos;
 

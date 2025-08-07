@@ -8,14 +8,14 @@ function Main() {
             id: "promo1",
             name: "Promo Corte + Peinado",
             price: 2500,
-            imagen: "https://via.placeholder.com/150",
+            imagen: "https://www.milanbergamoairport.it/rimg/4lc/7/8/7/6/7876c6b2cfe09ed263475fafcbe087b8_13c26209.jpg",
             description: "Servicio combinado a precio especial",
         },
         {
             id: "promo2",
             name: "Promo Manos + Esmaltado",
             price: 1800,
-            imagen: "https://via.placeholder.com/150",
+            imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgDP6RcAAGRjo2RmF0wSBpOL1P-QrAlfrgkQ&s",
             description: "Ideal para uñas impecables",
         }
     ];
